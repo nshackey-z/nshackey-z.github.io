@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊猫tv-弹幕互动直播平台与游戏娱乐社区</title>
+    <meta name="description" content="熊猫tv官网提供高清游戏直播、娱乐秀场直播及电竞资讯。汇聚人气主播，实时弹幕互动，观看LOL、Dota2、CS:GO等热门游戏赛事，打造年轻化直播社区。">
+    <meta name="keywords" content="熊猫tv,直播,游戏直播,电竞,熊猫直播,弹幕,在线观看">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ffcc00;
+            --secondary-color: #ff9900;
+            --dark-bg: #1a1a1a;
+            --card-bg: #252525;
+            --text-main: #ffffff;
+            --text-sub: #b3b3b3;
+            --border-color: #333333;
+            --nav-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            height: var(--nav-height);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-login {
+            padding: 8px 20px;
+            border: 1px solid var(--primary-color);
+            border-radius: 20px;
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('https://picsum.photos/seed/esports/1920/600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #ddd;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+
+        .section-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* Live Channels Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .channel-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .channel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-color: #444;
+        }
+
+        .card-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .card-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .live-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .live-badge::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            background-color: white;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .streamer-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .game-tag {
+            font-size: 12px;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .viewer-count {
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        /* Sidebar Layout for Top Section */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-section {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .sidebar h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: #333;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 12px;
+            font-weight: bold;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background-color: #ffd700; color: #000; }
+        .rank-list li:nth-child(2) .rank-num { background-color: #c0c0c0; color: #000; }
+        .rank-list li:nth-child(3) .rank-num { background-color: #cd7f32; color: #000; }
+
+        .rank-info h4 {
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .rank-info span {
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+
+        /* Game Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+        }
+
+        .category-item {
+            background-color: var(--card-bg);
+            padding: 15px 10px;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            background-color: #333;
+        }
+
+        .cat-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 10px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .cat-name {
+            font-size: 13px;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 50px 20px 20px;
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: var(--text-sub);
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none; /* Simplify for mobile */
+            }
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero {
+                height: 400px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.22-7.52-3.22 7.52 3.22z"/>
+                </svg>
+                熊猫<span>tv</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">游戏直播</a>
+                <a href="#">娱乐秀场</a>
+                <a href="#">电竞赛事</a>
+                <a href="#">社区广场</a>
+            </nav>
+            <div class="user-actions">
+                <a href="#" class="btn-login">登录 / 注册</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Live Streaming</span>
+            <h1>发现你的热爱，<br>与万千主播实时互动</h1>
+            <p>熊猫tv致力于打造年轻化、多元化的弹幕互动平台。无论是热门电竞赛事，还是轻松有趣的秀场直播，这里总有你喜欢的精彩内容。</p>
+            <a href="#" class="btn-cta">立即观看直播</a>
+        </div>
+    </section>
+
+    <main>
+        <div class="content-wrapper">
+            <!-- Left: Live Channels -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">热门直播</h2>
+                    <a href="#" class="section-more">查看更多 ></a>
+                </div>
+                
+                <div class="grid-container">
+                    <!-- Card 1 -->
+                    <article class="channel-card">
+                        <div class="card-thumbnail">
+                            <img src="https://picsum.photos/seed/lol/400/225" alt="英雄联盟直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="streamer-name">大司马_官方</h3>
+                            <div class="game-tag">🎮 英雄联盟</div>
+                            <div class="viewer-count">👁 45.2万 观看</div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="channel-card">
+                        <div class="card-thumbnail">
+                            <img src="https://picsum.photos/seed/dota/400/225" alt="DOTA2直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="streamer-name">Zard_官方</h3>
+                            <div class="game-tag">🎮 DOTA2</div>
+                            <div class="viewer-count">👁 12.8万 观看</div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="channel-card">
+                        <div class="card-thumbnail">
+                            <img src="https://picsum.photos/seed/music/400/225" alt="音乐直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="streamer-name">冯提莫</h3>
+                            <div class="game-tag">🎵 唱歌</div>
+                            <div class="viewer-count">👁 8.5万 观看</div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="channel-card">
+                        <div class="card-thumbnail">
+                            <img src="https://picsum.photos/seed/csgo/400/225" alt="CSGO直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="streamer-name">Monyet_官方</h3>
+                            <div class="game-tag">🎮 CS:GO</div>
+                            <div class="viewer-count">👁 25.1万 观看</div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="channel-card">
+                        <div class="card-thumbnail">
+                            <img src="https://picsum.photos/seed/justin/400/225" alt="脱口秀">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="streamer-name">刘波波波</h3>
+                            <div class="game-tag">🎤 脱口秀</div>
+                            <div class="viewer-count">👁 3.2万 观看</div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="channel-card">
+                        <div class="card-thumbnail">
+                            <img src="https://picsum.photos/seed/val/400/225" alt="瓦洛兰特直播">
+                            <span class="live-badge">LIVE</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="streamer-name">ScreaM_官方</h3>
+                            <div class="game-tag">🎮 瓦洛兰特</div>
+                            <div class="viewer-count">👁 9.9万 观看</div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-header">
+                    <h2 class="section-title">热门分类</h2>
+                </div>
+                <div class="category-grid">
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">英雄联盟</div></div>
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">DOTA2</div></div>
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">CS:GO</div></div>
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">瓦洛兰特</div></div>
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">APEX</div></div>
+                    <div class="category-item"><div class="cat-icon">🎵</div><div class="cat-name">音乐</div></div>
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">绝地求生</div></div>
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">永劫无间</div></div>
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">原神</div></div>
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">王者荣耀</div></div>
+                    <div class="category-item"><div class="cat-icon">🎤</div><div class="cat-name">脱口秀</div></div>
+                    <div class="category-item"><div class="cat-icon">🎮</div><div class="cat-name">主机游戏</div></div>
+                </div>
+            </section>
+
+            <!-- Right: Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>🔥 全站热度榜</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <span class="rank-num">1</span>
+                            <div class="rank-info">
+                                <h4>张大仙_官方</h4>
+                                <span>王者荣耀</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">2</span>
+                            <div class="rank-info">
+                                <h4>PDD_官方</h4>
+                                <span>英雄联盟</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">3</span>
+                            <div class="rank-info">
+                                <h4>李佳琦Meng</h4>
+                                <span>带货直播</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">4</span>
+                            <div class="rank-info">
+                                <h4>骚男_Official</h4>
+                                <span>英雄联盟</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="rank-num">5</span>
+                            <div class="rank-info">
+                                <h4>芜湖大司马</h4>
+                                <span>英雄联盟</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>📢 平台公告</h3>
+                    <ul class="rank-list">
+                        <li>
+                            <div class="rank-info">
+                                <h4>关于直播内容规范的更新公告</h4>
+                                <span>2023-10-24</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rank-info">
+                                <h4>熊猫TV秋季赛开启报名</h4>
+                                <span>2023-10-22</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="rank-info">
+                                <h4>新主播入驻福利政策</h4>
+                                <span>2023-10-20</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>熊猫tv</h2>
+                <p>熊猫tv是国内领先的年轻化弹幕互动直播平台。我们致力于为用户提供高清、流畅、有趣的直播体验，涵盖游戏、音乐、脱口秀等多种内容。</p>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">新手指南</a></li>
+                    <li><a href="#">主播入驻</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">Bilibili</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 熊猫tv. All Rights Reserved. 本页面为设计演示。
+        </div>
+    </footer>
+
+</body>
+                          </html>
