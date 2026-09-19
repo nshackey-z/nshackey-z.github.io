@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花都辉煌人才网-花都本地高效招聘求职服务平台</title>
+    <meta name="description" content="花都辉煌人才网专注花都本地招聘求职服务，提供最新花都招聘信息、企业黄页、人才简历库及高效招聘解决方案。找工作、招人才，就上花都辉煌人才网。">
+    <meta name="keywords" content="花都辉煌人才网, 花都招聘, 广州花都招聘, 花都人才网, 花都找工作, 花都企业招聘">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004494;
+            --accent-color: #ff9900;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --text-light: #999999;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --border-radius: 4px;
+            --container-width: 1200px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-size: 0.875rem;
+            padding: 0.5rem 0;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-main {
+            padding: 1rem 0;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            margin-left: 0.25rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .search-box {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .search-input-group {
+            flex: 1;
+            position: relative;
+        }
+
+        .search-input-group label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .search-input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .search-input-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            background-color: var(--white);
+        }
+
+        /* Quick Stats */
+        .stats-bar {
+            background-color: var(--white);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Main Content Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Section Styles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .section-more {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Job List */
+        .job-card {
+            background: var(--white);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: #e0e0e0;
+        }
+
+        .job-info {
+            flex: 1;
+        }
+
+        .job-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .job-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            background-color: #e3f2fd;
+            color: var(--primary-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 2px;
+            font-size: 0.75rem;
+        }
+
+        .job-action {
+            margin-left: 2rem;
+            text-align: right;
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #eee;
+            margin-bottom: 2rem;
+        }
+
+        .company-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .company-list li:last-child {
+            border-bottom: none;
+        }
+
+        .company-name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .company-count {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background-color: var(--white);
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background-color: #e3f2fd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .benefit-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about p {
+            color: #bdc3c7;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .job-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .job-action {
+                margin-left: 0;
+                text-align: left;
+            }
+            .search-box {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+            }
+            .header-top {
+                display: none;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-top">
+        <div class="container">
+            <span>欢迎访问花都辉煌人才网，专注本地服务</span>
+            <div class="header-top-links">
+                <a href="#">登录</a> | <a href="#">注册</a>
+            </div>
+        </div>
+    </div>
+    <div class="header-main">
+        <div class="container">
+            <a href="#" class="logo">花都<span>辉煌</span>人才网</a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">最新招聘</a>
+                <a href="#">企业招聘</a>
+                <a href="#">人才简历</a>
+                <a href="#">花都资讯</a>
+                <a href="#">帮助中心</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">企业登录</a>
+                <a href="#" class="btn btn-primary">免费注册</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>连接花都人才与机遇</h1>
+            <p>海量优质职位、精准企业推荐，助您轻松找到理想工作，助企业快速招到合适人才。</p>
+            <div class="search-box">
+                <div class="search-input-group">
+                    <label>职位名称/关键词</label>
+                    <input type="text" placeholder="请输入您感兴趣的职位或公司名称">
+                </div>
+                <div class="search-input-group">
+                    <label>工作地点</label>
+                    <select>
+                        <option>花都全区</option>
+                        <option>新华街道</option>
+                        <option>狮岭镇</option>
+                        <option>花山镇</option>
+                        <option>炭步镇</option>
+                        <option>赤坭镇</option>
+                    </select>
+                </div>
+                <div class="search-input-group">
+                    <label>发布时间</label>
+                    <select>
+                        <option>不限</option>
+                        <option>最近一周</option>
+                        <option>最近一月</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" style="height: 100%;">搜索职位</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>5000+</h3>
+                <p>本地优质企业</p>
+            </div>
+            <div class="stat-item">
+                <h3>12000+</h3>
+                <p>活跃人才简历</p>
+            </div>
+            <div class="stat-item">
+                <h3>8000+</h3>
+                <p>最新职位发布</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>企业满意度</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="main-layout">
+        <!-- Left Column: Job Listings -->
+        <section class="content-area">
+            <div class="section-header">
+                <h2 class="section-title">最新热门职位</h2>
+                <a href="#" class="section-more">查看更多 &rarr;</a>
+            </div>
+
+            <article class="job-card">
+                <div class="job-info">
+                    <h3 class="job-title">外贸业务经理（英语/日语/韩语）</h3>
+                    <div class="job-meta">
+                        <span>📍 花都区狮岭镇</span>
+                        <span>💰 8k-15k</span>
+                        <span>📅 经验3-5年</span>
+                        <span>🎓 本科及以上</span>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag">五险一金</span>
+                        <span class="tag">年终奖</span>
+                        <span class="tag">包吃住</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <a href="#" class="btn-link">查看详情 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="job-card">
+                <div class="job-info">
+                    <h3 class="job-title">高级机械工程师</h3>
+                    <div class="job-meta">
+                        <span>📍 花都区新华街</span>
+                        <span>💰 10k-18k</span>
+                        <span>📅 经验5-10年</span>
+                        <span>🎓 硕士优先</span>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag">双休</span>
+                        <span class="tag">项目奖金</span>
+                        <span class="tag">技术入股</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <a href="#" class="btn-link">查看详情 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="job-card">
+                <div class="job-info">
+                    <h3 class="job-title">电商运营主管</h3>
+                    <div class="job-meta">
+                        <span>📍 花都区狮岭镇</span>
+                        <span>💰 6k-10k</span>
+                        <span>📅 经验2-3年</span>
+                        <span>🎓 大专及以上</span>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag">绩效奖金</span>
+                        <span class="tag">弹性工作</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <a href="#" class="btn-link">查看详情 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="job-card">
+                <div class="job-info">
+                    <h3 class="job-title">仓管员/理货员</h3>
+                    <div class="job-meta">
+                        <span>📍 花都区新华街</span>
+                        <span>💰 4k-6k</span>
+                        <span>📅 经验1年以内</span>
+                        <span>🎓 学历不限</span>
+                    </div>
+                    <div class="job-tags">
+                        <span class="tag">包吃包住</span>
+                        <span class="tag">节日福利</span>
+                    </div>
+                </div>
+                <div class="job-action">
+                    <a href="#" class="btn-link">查看详情 &rarr;</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar">
+            <!-- Company Promotion -->
+            <div class="sidebar-widget">
+                <h3 class="section-title" style="font-size: 1.25rem; margin-bottom: 1rem;">热门企业推荐</h3>
+                <ul class="company-list">
+                    <li>
+                        <span class="company-name">广州某知名皮具集团</span>
+                        <span class="company-count">45个职位</span>
+                    </li>
+                    <li>
+                        <span class="company-name">花都XX电子科技有限公司</span>
+                        <span class="company-count">32个职位</span>
+                    </li>
+                    <li>
+                        <span class="company-name">狮岭XX服饰有限公司</span>
+                        <span class="company-count">28个职位</span>
+                    </li>
+                    <li>
+                        <span class="company-name">广州XX汽车零部件</span>
+                        <span class="company-count">15个职位</span>
+                    </li>
+                    <li>
+                        <span class="company-name">花都XX生物科技有限公司</span>
+                        <span class="company-count">12个职位</span>
+                    </li>
+                </ul>
+                <div style="margin-top: 1rem; text-align: center;">
+                    <a href="#" class="btn btn-outline" style="width: 100%; font-size: 0.9rem;">查看更多企业</a>
+                </div>
+            </div>
+
+            <!-- Recent Resumes -->
+            <div class="sidebar-widget">
+                <h3 class="section-title" style="font-size: 1.25rem; margin-bottom: 1rem;">最新求职简历</h3>
+                <ul class="company-list">
+                    <li>
+                        <div>
+                            <span class="company-name">张先生</span>
+                            <span style="font-size: 0.8rem; color: #999;">销售经理 | 5年经验</span>
+                        </div>
+                        <span style="font-size: 0.8rem; color: var(--primary-color);">查看简历</span>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="company-name">李女士</span>
+                            <span style="font-size: 0.8rem; color: #999;">行政专员 | 3年经验</span>
+                        </div>
+                        <span style="font-size: 0.8rem; color: var(--primary-color);">查看简历</span>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="company-name">王先生</span>
+                            <span style="font-size: 0.8rem; color: #999;">财务主管 | 8年经验</span>
+                        </div>
+                        <span style="font-size: 0.8rem; color: var(--primary-color);">查看简历</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">为什么选择花都辉煌人才网</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <h4 class="benefit-title">精准本地化</h4>
+                    <p class="benefit-desc">深耕花都本地市场，覆盖新华、狮岭、花山等主要工业区，精准匹配周边人才。</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <h4 class="benefit-title">企业认证保障</h4>
+                    <p class="benefit-desc">严格审核企业资质，确保招聘信息真实有效，保障求职者权益。</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h4 class="benefit-title">极速招聘流程</h4>
+                    <p class="benefit-desc">简历直达HR，在线沟通便捷高效，缩短招聘周期，降低用人成本。</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💡</div>
+                    <h4 class="benefit-title">专业职业指导</h4>
+                    <p class="benefit-desc">提供简历优化、面试技巧等职业咨询服务，助力职场人士成长。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help/FAQ Section -->
+    <section class="container" style="margin-bottom: 3rem;">
+        <div class="section-header">
+            <h2 class="section-title">求职与招聘指南</h2>
+        </div>
+        <div class="main-layout">
+            <article style="background: #fff; padding: 1.5rem; border-radius: 4px; border: 1px solid #eee;">
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">如何发布优质简历？</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1rem;">
+                    1. 登录花都辉煌人才网，点击“我的简历”进入编辑页面。<br>
+                    2. 填写真实准确的个人信息，特别是工作经历和技能特长。<br>
+                    3. 上传清晰的个人证件照及职业照，增加简历通过率。<br>
+                    4. 定期更新简历状态，保持活跃度，以便企业第一时间发现您。
+                </p>
+            </article>
+            <article style="background: #fff; padding: 1.5rem; border-radius: 4px; border: 1px solid #eee;">
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">企业如何快速招到人？</h3>
+                <p style="color: var(--text-gray); margin-bottom: 1rem;">
+                    1. 优化招聘职位描述，明确薪资范围和岗位要求。<br>
+                    2. 开通VIP会员，享受职位置顶和精准简历推荐服务。<br>
+                    3. 积极参与在线沟通，及时回复求职者咨询。<br>
+                    4. 定期检查并刷新职位信息，保持招聘热度。
+                </p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3>花都辉煌人才网</h3>
+                <p>我们致力于打造花都地区最专业、最活跃的线上招聘与求职平台。通过整合本地优质企业资源与人才库，为求职者提供广阔的职业发展空间，为企业提供高效的人才解决方案。</p>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul class="footer-links">
+                    <li><a href="#">网站介绍</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>人才服务</h4>
+                <ul class="footer-links">
+                    <li><a href="#">免费注册</a></li>
+                    <li><a href="#">发布简历</a></li>
+                    <li><a href="#">职位搜索</a></li>
+                    <li><a href="#">职业咨询</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>企业服务</h4>
+                <ul class="footer-links">
+                    <li><a href="#">企业入驻</a></li>
+                    <li><a href="#">发布职位</a></li>
+                    <li><a href="#">人才库查询</a></li>
+                    <li><a href="#">招聘方案</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 花都辉煌人才网 版权所有 | 广州人力资源服务许可证编号：XXXXXXXX</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+  </html>
