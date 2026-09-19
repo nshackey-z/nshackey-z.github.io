@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="聪明人玩的游戏 - 深度解析高智商策略游戏、逻辑解谜游戏与思维训练平台。提供策略游戏推荐、游戏机制分析及思维提升指南。">
+    <meta name="keywords" content="聪明人玩的游戏,策略游戏,逻辑解谜,思维训练,益智游戏">
+    <title>聪明人玩的游戏 - 深度策略与思维挑战指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f1115;
+            --card-bg: #181b21;
+            --text-main: #e0e0e0;
+            --text-muted: #9ca3af;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #8b5cf6;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+            --border-color: #2d3748;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(15, 17, 21, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-primary);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding: 100px 0 80px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15), transparent 60%);
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--text-main);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--card-bg);
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(59, 130, 246, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--accent-primary);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Game Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            group: category;
+        }
+
+        .category-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+            filter: brightness(0.6);
+        }
+
+        .category-card:hover .category-bg {
+            transform: scale(1.1);
+            filter: brightness(0.4);
+        }
+
+        .category-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+
+        .category-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .category-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        /* List Style Section (Deep Dive) */
+        .deep-dive {
+            background-color: var(--card-bg);
+        }
+
+        .list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-color);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .list-item:hover {
+            border-left-color: var(--accent-secondary);
+            background-color: #22252b;
+        }
+
+        .list-rank {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            width: 50px;
+            text-align: center;
+        }
+
+        .list-item:hover .list-rank {
+            color: var(--accent-secondary);
+        }
+
+        .list-content {
+            flex: 1;
+        }
+
+        .list-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .list-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .list-tag {
+            padding: 4px 10px;
+            background-color: rgba(139, 92, 246, 0.1);
+            color: var(--accent-secondary);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* FAQ Section */
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 10px;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            padding: 20px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+            transition: transform 0.2s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 30px;
+            background-color: var(--card-bg);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                font-size: 0.85rem;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">智弈空间</a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#categories">游戏分类</a></li>
+                    <li><a href="#deep-dive">深度解析</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="cta-btn">开始挑战</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>聪明人玩的游戏<br><span>重塑思维边界</span></h1>
+                <p>拒绝低效娱乐。探索专为高智商人群设计的策略、逻辑与思维训练游戏。在这里，每一场博弈都是对智慧的深度打磨。</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>精选策略游戏</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10万+</h3>
+                        <p>深度策略玩家</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>逻辑驱动体验</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section-padding features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么聪明人选择这里？</h2>
+                    <p>不仅仅是游戏，更是思维的健身房</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="icon-box">🧠</div>
+                        <h3>深度逻辑训练</h3>
+                        <p>通过复杂的规则系统和多变量决策，锻炼逻辑推理与因果分析能力，提升思维敏捷度。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">♟️</div>
+                        <h3>博弈论应用</h3>
+                        <p>模拟现实世界的策略对抗，理解纳什均衡与零和博弈，掌握博弈论在决策中的实际应用。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">🎯</div>
+                        <h3>资源管理能力</h3>
+                        <p>在资源受限的极限环境下进行规划，培养全局观、优先级判断与长期规划能力。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section id="categories" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>游戏分类探索</h2>
+                    <p>找到适合你思维模式的挑战</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-bg" style="background-image: url('https://picsum.photos/seed/chess/400/300');"></div>
+                        <div class="category-content">
+                            <div class="category-title">战略棋类</div>
+                            <div class="category-sub">围棋、国际象棋、战棋</div>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-bg" style="background-image: url('https://picsum.photos/seed/puzzle/400/300');"></div>
+                        <div class="category-content">
+                            <div class="category-title">逻辑解谜</div>
+                            <div class="category-sub">密室逃脱、数独、推理解谜</div>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-bg" style="background-image: url('https://picsum.photos/seed/civilization/400/300');"></div>
+                        <div class="category-content">
+                            <div class="category-title">文明建设</div>
+                            <div class="category-sub">4X策略、模拟经营、即时战略</div>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-bg" style="background-image: url('https://picsum.photos/seed/risk/400/300');"></div>
+                        <div class="category-content">
+                            <div class="category-title">风险博弈</div>
+                            <div class="category-sub">德州扑克、狼人杀、战略博弈</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Dive List -->
+        <section id="deep-dive" class="section-padding deep-dive">
+            <div class="container">
+                <div class="section-header">
+                    <h2>深度解析：经典案例</h2>
+                    <p>剖析聪明人为何沉迷的顶级游戏机制</p>
+                </div>
+                <div class="list-container">
+                    <div class="list-item">
+                        <div class="list-rank">01</div>
+                        <div class="list-content">
+                            <h3 class="list-title">《文明》系列：长期规划的艺术</h3>
+                            <p class="list-desc">这不仅仅是城市建设，更是历史进程的编排。玩家需在科技、文化、军事和宗教之间寻找平衡点，体验“一将功成万骨枯”的战略厚重感。</p>
+                        </div>
+                        <span class="list-tag">宏观策略</span>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-rank">02</div>
+                        <div class="list-content">
+                            <h3 class="list-title">《围棋》：最纯粹的博弈论</h3>
+                            <p class="list-desc">黑白世界的极致简化。在有限的空间内，通过气的计算、地盘的争夺，演绎出无穷变化的战略博弈，是东方智慧的巅峰体现。</p>
+                        </div>
+                        <span class="list-tag">传统策略</span>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-rank">03</div>
+                        <div class="list-content">
+                            <h3 class="list-title">《暗黑地牢》：绝望中的风险管理</h3>
+                            <p class="list-desc">高难度的Roguelike游戏，强调队伍配置与资源管理的风险控制。在不可预知的灾难面前，如何制定最优的止损策略是核心乐趣。</p>
+                        </div>
+                        <span class="list-tag">风险控制</span>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-rank">04</div>
+                        <div class="list-content">
+                            <h3 class="list-title">《XCOM》：信息不对称下的决策</h3>
+                            <p class="list-desc">在信息不完全的情况下，利用地形、概率和有限的行动点进行战术部署。每一个选择都关乎小队的生死存亡。</p>
+                        </div>
+                        <span class="list-tag">战术模拟</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq">
+                    <div class="faq-item">
+                        <button class="faq-question">这类游戏适合初学者吗？</button>
+                        <div class="faq-answer">
+                            <p>是的。虽然部分游戏（如《文明》或《暗黑地牢》）上手有一定门槛，但它们通常提供详尽的教程和循序渐进的难度设置。对于喜欢思考、不畏惧失败并享受过程的人来说，是极佳的思维训练方式。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">玩这类游戏能提升现实工作能力吗？</button>
+                        <div class="faq-answer">
+                            <p>能。策略游戏的核心机制——资源分配、风险评估、长远规划以及应对突发状况——与现实商业决策、项目管理高度相似。长期游玩能有效提升大局观和决策效率。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">推荐哪些平台可以体验？</button>
+                        <div class="faq-answer">
+                            <p>PC端是策略游戏的最佳载体，Steam平台拥有最丰富的独立策略游戏库。此外，主机平台也有许多优秀的即时战略（RTS）游戏。移动端则适合碎片化时间的逻辑解谜。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo">智弈空间</a>
+                    <p style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem;">
+                        专注于为高智商人群提供深度策略游戏推荐与思维分析。拒绝平庸，挑战极限。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>探索</h4>
+                    <ul>
+                        <li><a href="#">新游首发</a></li>
+                        <li><a href="#">深度评测</a></li>
+                        <li><a href="#">策略指南</a></li>
+                        <li><a href="#">玩家社区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源</h4>
+                    <ul>
+                        <li><a href="#">游戏下载</a></li>
+                        <li><a href="#">策略工具</a></li>
+                        <li><a href="#">思维导图</a></li>
+                        <li><a href="#">学术研究</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关于</h4>
+                    <ul>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 智弈空间. All rights reserved. 本站内容仅供学习与交流，不涉及任何商业牟利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
