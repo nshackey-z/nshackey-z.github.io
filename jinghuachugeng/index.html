@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="警花出更叶柔 - 警察题材漫画与在线阅读平台。收录叶柔警官的精彩执法故事、案件解析与人物成长历程，提供高清正版阅读体验。">
+    <meta name="keywords" content="警花出更叶柔, 警花出更, 叶柔, 漫画, 在线阅读, 漫画推荐, 警察题材">
+    <title>警花出更叶柔-热血警察题材漫画与在线阅读指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a2a3a;
+            --accent-color: #e63946;
+            --secondary-color: #457b9d;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-main: #2b2d42;
+            --text-light: #8d99ae;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-top: var(--header-height);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header & Nav */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: rgba(26, 42, 58, 0.98);
+            color: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+            opacity: 1;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-subscribe {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .btn-subscribe:hover {
+            background-color: #c92a37;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://picsum.photos/seed/policehero/1600/900'); /* Placeholder for hero image */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Manga Grid */
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .manga-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .manga-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-cover {
+            position: relative;
+            padding-top: 140%; /* Aspect Ratio */
+            background-color: #ddd;
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Character Spotlight */
+        .character-section {
+            background-color: white;
+            padding: 60px 0;
+            margin-bottom: 50px;
+        }
+
+        .character-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .character-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .character-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .character-content {
+            flex: 1;
+        }
+
+        .character-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .character-desc {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item h4 {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Chapters List */
+        .chapter-list {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s;
+        }
+
+        .chapter-item:last-child {
+            border-bottom: none;
+        }
+
+        .chapter-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .chapter-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .chapter-num {
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .chapter-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .chapter-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .btn-read {
+            background: var(--secondary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: rgba(255,255,255,0.6);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                height: 400px;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .character-container {
+                flex-direction: column;
+            }
+
+            .character-image {
+                width: 100%;
+            }
+
+            .character-content {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats-grid {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>警</span>花出更叶柔
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">漫画目录</a></li>
+                    <li><a href="#">角色图鉴</a></li>
+                    <li><a href="#">周边资讯</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-subscribe">立即阅读</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-tag">热门连载中</span>
+                    <h1>警花出更叶柔：<br>守护城市的正义之光</h1>
+                    <p>跟随叶柔警官的脚步，体验紧张刺激的刑侦案件与温情守护。在正义与邪恶的较量中，见证她的成长与蜕变。</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn-primary">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"></path></svg>
+                            开始阅读
+                        </a>
+                        <a href="#" class="btn-secondary">加入书架</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Character Spotlight -->
+        <section class="container">
+            <div class="character-section">
+                <div class="character-container">
+                    <div class="character-image">
+                        <img src="https://picsum.photos/seed/yeerou/600/700" alt="叶柔警官形象">
+                    </div>
+                    <div class="character-content">
+                        <h2>主角档案：叶柔</h2>
+                        <p class="character-desc">
+                            叶柔，一名性格坚韧、心思缜密的年轻刑警。她不仅拥有敏锐的洞察力，更有着一颗不畏强权、坚持正义的赤子之心。从警校毕业以来，她处理过多起棘手案件，是警队里的新生代骨干。
+                        </p>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <h4>所属部门</h4>
+                                <p>刑侦支队</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>擅长领域</h4>
+                                <p>痕迹鉴定 / 心理侧写</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>性格关键词</h4>
+                                <p>冷静 / 坚定 / 善良</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>经典语录</h4>
+                                <p>“真相只有一个，正义永不缺席。”</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Updates -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">最新更新</h2>
+                <a href="#" class="view-all">查看全部章节 &rarr;</a>
+            </div>
+            <div class="chapter-list">
+                <article class="chapter-item">
+                    <div class="chapter-info">
+                        <div class="chapter-num">42</div>
+                        <div>
+                            <div class="chapter-title">第42章：暗夜追踪</div>
+                            <div class="chapter-date">2023-10-24</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-read">阅读</a>
+                </article>
+                <article class="chapter-item">
+                    <div class="chapter-info">
+                        <div class="chapter-num">41</div>
+                        <div>
+                            <div class="chapter-title">第41章：嫌疑人现身</div>
+                            <div class="chapter-date">2023-10-18</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-read">阅读</a>
+                </article>
+                <article class="chapter-item">
+                    <div class="chapter-info">
+                        <div class="chapter-num">40</div>
+                        <div>
+                            <div class="chapter-title">第40章：证据链</div>
+                            <div class="chapter-date">2023-10-10</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-read">阅读</a>
+                </article>
+                <article class="chapter-item">
+                    <div class="chapter-info">
+                        <div class="chapter-num">39</div>
+                        <div>
+                            <div class="chapter-title">第39章：深夜电话</div>
+                            <div class="chapter-date">2023-10-05</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-read">阅读</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Recommended Works -->
+        <section class="container" style="margin-top: 60px;">
+            <div class="section-header">
+                <h2 class="section-title">同类推荐</h2>
+                <a href="#" class="view-all">更多作品 &rarr;</a>
+            </div>
+            <div class="manga-grid">
+                <div class="manga-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/comic1/300/420" alt="漫画封面">
+                        <span class="card-status">连载中</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">都市特警</h3>
+                        <div class="card-meta">
+                            <span>动作</span>
+                            <span>1.2万人关注</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="manga-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/comic2/300/420" alt="漫画封面">
+                        <span class="card-status">完结</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">无声证词</h3>
+                        <div class="card-meta">
+                            <span>悬疑</span>
+                            <span>8000人关注</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="manga-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/comic3/300/420" alt="漫画封面">
+                        <span class="card-status">连载中</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">天网恢恢</h3>
+                        <div class="card-meta">
+                            <span>刑侦</span>
+                            <span>9500人关注</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="manga-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/comic4/300/420" alt="漫画封面">
+                        <span class="card-status">连载中</span>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">铁血警卫</h3>
+                        <div class="card-meta">
+                            <span>热血</span>
+                            <span>5000人关注</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section container">
+            <div class="section-header">
+                <h2 class="section-title">阅读指南</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    《警花出更叶柔》在哪里可以阅读？
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    您可以通过本站直接在线阅读，支持手机端和电脑端访问。所有章节均为高清正版图片，无弹窗干扰。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    漫画更新频率是怎样的？
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    本作品保持每周一、周四更新两话的频率，如有特殊情况会提前公告。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    需要注册才能阅读吗？
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    目前前几章为免费试读，后续章节需注册登录后即可免费阅读。
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>警花出更叶柔</h3>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        致力于为读者提供最优质的警察题材漫画阅读体验。在这里，感受正义的力量，体验紧张刺激的破案过程。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#">漫画首页</a></li>
+                        <li><a href="#">最新章节</a></li>
+                        <li><a href="#">排行榜</a></li>
+                        <li><a href="#">作者专区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>帮助中心</h3>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 警花出更叶柔漫画站 版权所有
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
